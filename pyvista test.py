@@ -1,0 +1,20 @@
+import pyvista
+from pyvista import examples
+
+pl = pyvista.Plotter(shape=(3, 2))
+pl.subplot(0, 0)
+pl.add_text("Mercury")
+pl.add_mesh(examples.planets.download_mercury_surface(), rgb=True)
+pl.subplot(0, 1)
+pl.add_mesh(examples.planets.load_mercury())
+pl.subplot(1, 0)
+pl.add_text("Venus")
+pl.add_mesh(examples.planets.download_venus_surface(atmosphere=True), rgb=True)
+pl.subplot(1, 1)
+pl.add_mesh(examples.planets.load_venus())
+pl.subplot(2, 0)
+pl.add_text("Mars")
+pl.add_mesh(examples.planets.download_mars_surface(), rgb=True)
+pl.subplot(2, 1)
+pl.add_mesh(examples.planets.load_mars())
+pl.show(cpos="xy")
